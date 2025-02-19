@@ -8,8 +8,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        primary: '#1B1444',
+        secondary: '#F39248',
+        textDark: '#2D2A48',
+        background: "#F5F5F5",
+        // foreground: "#ffffff",
+        // background: "var(--background)",
+        // foreground: "var(--foreground)",
+      },
+      ontFamily: {
+        serif: ["Playfair Display", "serif"],
+        sans: ["Poppins", "sans-serif"],
       },
     },
   },
