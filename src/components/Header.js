@@ -77,7 +77,7 @@ const Header = () => {
 
         {/* Navigation Buttons */}
         <div className="absolute right-0 top-1/2 transform -translate-y-1/2">
-          <button onClick={nextImage} className="bg-accent p-2 rounded-full">
+          <button onClick={nextImage} className="bg-secondary p-2 rounded-full">
             <FaArrowRight size={20} color="white" />
           </button>
         </div>
