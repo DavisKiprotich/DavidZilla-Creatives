@@ -3,18 +3,14 @@ import React, { useState} from "react";
 import { motion } from "framer-motion";
 // import ImageCarousel from "./ImageCarousel";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import image1 from '../../public/Images/africa.jpg'
-import image2 from '../../public/Images/bab.jpg'
-import image3 from '../../public/Images/beau.jpg'
-import image4 from '../../public/Images/makeup.jpg'
-import image5 from '../../public/Images/test.jpg'
+import Image from "next/image";
 
 const images = [
-  { src: image1, title: "Rainy Streets", tilt: "-10deg" },
-  { src: image2, title: "Spring Harmony", tilt: "-5deg" },
-  { src: image3, title: "Keeper of the Night", tilt: "0deg" }, // Center image upright
-  { src: image4, title: "City Stroll", tilt: "5deg" },
-  { src: image5, title: "Mystic Waterfalls", tilt: "10deg" },
+  { src: "/images/africa.jpg", title: "Rainy Streets", tilt: "-10deg" },
+  { src: "/images/bab.jpg", title: "Spring Harmony", tilt: "-5deg" },
+  { src: "/images/beau.jpg", title: "Keeper of the Night", tilt: "0deg" }, // Center image upright
+  { src: "/images/makeup.jpg", title: "City Stroll", tilt: "5deg" },
+  { src: "/images/test.jpg", title: "Mystic Waterfalls", tilt: "10deg" },
 ];
 const Header = () => {
   const [index, setIndex] = useState(2); // Start with the middle image
@@ -28,16 +24,16 @@ const Header = () => {
   };
 
   return (
-    <section className="w-full min-h-screen flex flex-col items-center justify-center bg-gray-100 px-10">
+    <section className="w-full min-h-screen flex flex-col items-center justify-center bg-gray-100 px-6 lg:px-10 pt-20">
       {/* H1 & Paragraph Section */}
-      <div className="w-full flex justify-between items-center max-w-6xl">
-        <h1 className="text-4xl font-bold text-primary leading-tight">
+      <div className="w-full flex flex-col lg:flex-row items-center lg:justify-between max-w-6xl text-center lg:text-left">
+        <h1 className="text-3xl lg:text-5xl font-bold text-primary leading-tight">
           Drive into <br /> 
           <span className="text-accent italic">creativity</span> with our <br />
           <span className="text-secondary italic">gallery collection</span>
         </h1>
-        <div className="max-w-md">
-          <p className="text-lg text-gray-600">
+        <div className="max-w-md mt-4 lg:mt-0">
+          <p className="text-base lg:text-lg text-gray-600">
             Explore our curated gallery collections, featuring captivating works from renowned artists. Immerse yourself in upcoming exhibitions and events that celebrate creativity.
           </p>
           <button className="mt-4 px-6 py-2 bg-secondary text-white rounded-lg shadow-md">
@@ -47,40 +43,51 @@ const Header = () => {
       </div>
 
       {/* Image Carousel Below */}
-      <div className="relative flex flex-col items-center mt-12">
+      <div className="relative flex items-center justify-center w-full mt-12 max-w-lg lg:max-w-4xl">
         {/* Navigation Buttons */}
-        <div className="absolute left-0 top-1/2 transform -translate-y-1/2">
-          <button onClick={prevImage} className="bg-secondary p-2 rounded-full">
-            <FaArrowLeft size={20} color="white" />
-          </button>
-        </div>
+        <button onClick={prevImage} className="absolute left-0 bg-secondary p-3 hover:bg-opacity-80 rounded-full z-10 transition-all shadow-lg">
+          <FaArrowLeft size={20} color="white" />
+        </button>
 
-        {/* Image Carousel */}
-        <div className="flex space-x-4">
+        {/* Image Display */}
+        <div className="flex items-center">
           {images.map((img, i) => {
             const isCenter = i === index;
+            const isLargeScreen = "lg:flex"; // Show multiple images only on large screens
 
             return (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, scale: isCenter ? 1 : 0.85, rotate: isCenter ? "0deg" : img.tilt }}
-                animate={{ opacity: 1, scale: isCenter ? 1 : 0.85, rotate: isCenter ? "0deg" : img.tilt }}
+                initial={{ opacity: isCenter ? 1 : 0.5, scale: isCenter ? 1 : 0.85, rotate: isCenter ? "0deg" : img.tilt }}
+                animate={{ opacity: isCenter ? 1 : 0, scale: isCenter ? 1.1 : 0.85, rotate: isCenter ? "0deg" : img.tilt }}
                 transition={{ duration: 0.5 }}
-                className={`rounded-xl shadow-lg ${isCenter ? "w-60 h-80" : "w-40 h-60"}`}
+                className={`relative w-52 h-72 xl:w-64 xl:h-80 rounded-xl shadow-lg overflow-hidden ${
+                  isCenter ? "block" : isLargeScreen
+                }`}
               >
-                <img src={img.src} alt={img.title} className="rounded-xl w-full h-full object-cover" />
-                {isCenter && <p className="text-center text-primary font-bold mt-2">{img.title}</p>}
+                <Image
+                  src={img.src}
+                  alt={img.title}
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-xl"
+                />
+                {isCenter && (
+                  <p className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white bg-black bg-opacity-50 px-4 py-1 rounded-lg text-sm">
+                    {img.title}
+                  </p>
+                )}
               </motion.div>
             );
           })}
         </div>
-
         {/* Navigation Buttons */}
-        <div className="absolute right-0 top-1/2 transform -translate-y-1/2">
-          <button onClick={nextImage} className="bg-secondary p-2 rounded-full">
-            <FaArrowRight size={20} color="white" />
-          </button>
-        </div>
+        <button
+          onClick={nextImage}
+          className="absolute right-0 z-10 bg-secondary p-3 rounded-full hover:bg-opacity-80 transition-all shadow-lg"
+        >
+          <FaArrowRight size={24} color="white" />
+        </button>
       </div>
     </section>
   );
