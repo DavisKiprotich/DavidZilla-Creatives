@@ -58,7 +58,7 @@ const Header = () => {
             return (
               <motion.div
                 key={i}
-                initial={{ opacity: isCenter ? 1 : 0.5, scale: isCenter ? 1 : 0.85, rotate: isCenter ? "0deg" : img.tilt }}
+                initial={{ opacity: isCenter ? 1 : 1, scale: isCenter ? 1 : 0.85, rotate: isCenter ? "0deg" : img.tilt }}
                 animate={{ opacity: isCenter ? 1 : 0, scale: isCenter ? 1.1 : 0.85, rotate: isCenter ? "0deg" : img.tilt }}
                 transition={{ duration: 0.5 }}
                 className={`relative w-52 h-72 xl:w-64 xl:h-80 rounded-xl shadow-lg overflow-hidden ${
