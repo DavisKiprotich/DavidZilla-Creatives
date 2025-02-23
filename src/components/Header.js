@@ -1,5 +1,5 @@
-'use client'
-import React, { useState} from "react";
+"use client";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 // import ImageCarousel from "./ImageCarousel";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
@@ -28,13 +28,15 @@ const Header = () => {
       {/* H1 & Paragraph Section */}
       <div className="w-full flex flex-col lg:flex-row items-center lg:justify-between max-w-6xl text-center lg:text-left">
         <h1 className="text-3xl lg:text-5xl font-bold text-primary leading-tight">
-          Drive into <br /> 
+          Drive into <br />
           <span className="text-accent italic">creativity</span> with our <br />
           <span className="text-secondary italic">gallery collection</span>
         </h1>
         <div className="max-w-md mt-4 lg:mt-0">
           <p className="text-base lg:text-lg text-gray-600">
-            Explore our curated gallery collections, featuring captivating works from renowned artists. Immerse yourself in upcoming exhibitions and events that celebrate creativity.
+            Explore our curated gallery collections, featuring captivating works
+            from renowned artists. Immerse yourself in upcoming exhibitions and
+            events that celebrate creativity.
           </p>
           <button className="mt-4 px-6 py-2 bg-secondary text-white rounded-lg shadow-md">
             Explore Collection
@@ -45,25 +47,35 @@ const Header = () => {
       {/* Image Carousel Below */}
       <div className="relative flex items-center justify-center w-full mt-12 max-w-lg lg:max-w-4xl">
         {/* Navigation Buttons */}
-        <button onClick={prevImage} className="absolute left-0 bg-secondary p-3 hover:bg-opacity-80 rounded-full z-10 transition-all shadow-lg">
+        <button
+          onClick={prevImage}
+          className="absolute left-0 bg-secondary p-3 hover:bg-opacity-80 rounded-full z-10 transition-all shadow-lg"
+        >
           <FaArrowLeft size={20} color="white" />
         </button>
 
         {/* Image Display */}
-        <div className="flex items-center">
+        <div className="flex items-center justify-center gap-6 lg:gap-8 flex-wrap lg:flex-nowrap">
           {images.map((img, i) => {
             const isCenter = i === index;
-            const isLargeScreen = "lg:flex"; // Show multiple images only on large screens
-
+            const isMdScreen = i === index || i === (index + 1) % images.length; // Show 2 images on md screens
+            const isSmScreen = i === index; // Show only 1 image on sm screens
+            
             return (
+          
               <motion.div
                 key={i}
-                initial={{ opacity: isCenter ? 1 : 1, scale: isCenter ? 1 : 0.85, rotate: isCenter ? "0deg" : img.tilt }}
-                animate={{ opacity: isCenter ? 1 : 0, scale: isCenter ? 1.1 : 0.85, rotate: isCenter ? "0deg" : img.tilt }}
+                initial={{ scale: isCenter ? 1 : 0.85, rotate: img.tilt }}
+                animate={{
+                  scale: isCenter ? 1.2 : 1, // Slightly larger center image
+                  rotate: isCenter ? "0deg" : img.tilt,
+                }}
                 transition={{ duration: 0.5 }}
-                className={`relative w-52 h-72 xl:w-64 xl:h-80 rounded-xl shadow-lg overflow-hidden ${
-                  isCenter ? "block" : isLargeScreen
-                }`}
+                className={`relative w-52 h-72 xl:w-64 xl:h-80 rounded-xl shadow-lg overflow-hidden 
+        ${isCenter ? "z-20" : "z-10"}
+          ${isSmScreen ? "sm:flex md:hidden lg:flex" : ""} 
+        ${isMdScreen ? "md:flex lg:flex hidden" : "md:hidden lg:flex"}
+        `}
               >
                 <Image
                   src={img.src}
