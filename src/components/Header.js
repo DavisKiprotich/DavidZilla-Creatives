@@ -49,25 +49,24 @@ const Header = () => {
         {/* Navigation Buttons */}
         <button
           onClick={prevImage}
-          className="absolute left-0 bg-secondary p-3 hover:bg-opacity-80 rounded-full z-10 transition-all shadow-lg"
+          className="absolute left-4 bg-secondary p-3 hover:bg-opacity-80 rounded-full z-30 transition-all shadow-lg"
         >
           <FaArrowLeft size={20} color="white" />
         </button>
 
         {/* Image Display */}
-        <div className="flex items-center justify-center gap-6 lg:gap-8 flex-wrap lg:flex-nowrap">
+        <div className="flex items-center justify-center gap-4 lg:gap-8 flex-wrap lg:flex-nowrap">
           {images.map((img, i) => {
             const isCenter = i === index;
             const isMdScreen = i === index || i === (index + 1) % images.length; // Show 2 images on md screens
             const isSmScreen = i === index; // Show only 1 image on sm screens
-            
+
             return (
-          
               <motion.div
                 key={i}
-                initial={{ scale: isCenter ? 1 : 0.85, rotate: img.tilt }}
+                initial={{ scale: 1, rotate: img.tilt }}
                 animate={{
-                  scale: isCenter ? 1.2 : 1, // Slightly larger center image
+                  scale: isCenter ? 1.1 : 1, // Slightly larger center image
                   rotate: isCenter ? "0deg" : img.tilt,
                 }}
                 transition={{ duration: 0.5 }}
@@ -96,7 +95,7 @@ const Header = () => {
         {/* Navigation Buttons */}
         <button
           onClick={nextImage}
-          className="absolute right-0 z-10 bg-secondary p-3 rounded-full hover:bg-opacity-80 transition-all shadow-lg"
+          className="absolute right-4 z-30 bg-secondary p-3 rounded-full hover:bg-opacity-80 transition-all shadow-lg"
         >
           <FaArrowRight size={24} color="white" />
         </button>
