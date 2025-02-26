@@ -43,40 +43,17 @@ const About = () => {
   return (
     <section className="px-6 lg:px-24 py-12 bg-gray-200" id='about'>
       {/* Heading */}
-      <h1 className="left-0 text-3xl lg:text-4xl font-bold mb-8 text-primary italic">
-          <span className="text-secondary">Why We Rock!</span>
+      <h1 className="left-0 text-3xl lg:text-4xl font-bold mb-8 text-primary">
+          <span className="text-primary">Why We Rock!</span>
       </h1>
-      {/* Swiper for Small and Medium Screens */}
-<div className="lg:hidden flex justify-center items-center h-screen">
-  <Swiper
-    modules={[Pagination]}
-    pagination={{ clickable: true }}
-    spaceBetween={20}
-    slidesPerView={1}
-    className="w-full flex justify-center"
-  >
-    {cards.map((card, index) => (
-      <SwiperSlide key={index} className="flex justify-center">
-        <div
-          className={`relative p-6 w-44 md:w-52 rounded-2xl shadow-lg ${card.bgColor}`}
-        >
-          {/* Card Number */}
-          <span className="absolute top-3 left-3 text-lg font-semibold bg-black text-white rounded-full w-10 h-10 flex items-center justify-center">
-            {card.id}
-          </span>
-          {/* Link Icon */}
-          <a href="#" className="absolute top-3 right-3">
-            <ArrowUpRight size={18} />
-          </a>
-          {/* Title */}
-          <h3 className="text-lg font-bold mt-6 mb-2">{card.title}</h3>
-          {/* Description */}
-          <p className="text-sm text-gray-700">{card.description}</p>
-        </div>
-      </SwiperSlide>
-    ))}
-  </Swiper>
-</div>
+
+      {/* Description for Small Screens */}
+      <div className="block md:hidden text-center p-4 rounded-lg">
+        <p className="text-lg font-medium">
+          We focus on graphical design services which entail logo design, flyers, cards, and other works.
+        </p>
+      </div>
+   
 
       {/* Card Container */}
       <div className="hidden lg:flex flex-wrap justify-center gap-4">
