@@ -12,8 +12,9 @@ export default {
         secondary: '#F39248',
         textDark: '#2D2A48',
         background: "#F5F5F5",
+        textBlue:'#000080',
       },
-      ontFamily: {
+      fontFamily: {
         serif: ["Playfair Display", "serif"],
         sans: ["Poppins", "sans-serif"],
       },

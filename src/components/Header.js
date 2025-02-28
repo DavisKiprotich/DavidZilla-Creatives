@@ -72,7 +72,7 @@ const Header = () => {
                 transition={{ duration: 0.5 }}
                 className={`relative w-52 h-72 xl:w-64 xl:h-80 rounded-xl shadow-lg overflow-hidden 
         ${isCenter ? "z-20" : "z-10"}
-          ${isSmScreen ? "sm:flex lg:flex hidden" : "sm:hidden lg:flex"} 
+        ${isSmScreen ? "sm:flex lg:flex hidden" : "sm:hidden lg:flex"}
         ${isMdScreen ? "md:flex lg:flex hidden" : "md:hidden lg:flex"}
         `}
               >
