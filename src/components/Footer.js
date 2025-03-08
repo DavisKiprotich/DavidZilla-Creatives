@@ -27,15 +27,14 @@ const Footer = () => {
         {/* Contact Info */}
         <div>
           <h3 className="font-semibold text-lg mb-3">Contact Us</h3>
-          <p>2270 S Real Comino Lake</p>
-          <p>California, US 09087</p>
-          <p className="mt-2"><FaPhoneAlt/> (617) 987-6543</p>
-          <p><IoMailUnreadOutline /> info@museumwp.com</p>
+          <p>Nairobi, Kenya</p>
+          <p className="mt-2"><FaPhoneAlt/>(617) 987-6543</p>
+          <p><IoMailUnreadOutline />info@museumwp.com</p>
         </div>
 
         {/* Newsletter Signup */}
         <div>
-          <h3 className="font-semibold text-lg mb-3">SUBSCRIBE TO NEWSLETTER</h3>
+          <h3 className="font-semibold text-lg mb-3">GET IN TOUCH</h3>
           <div className="flex flex-col items-center md:items-start">
             <input
               type="email"
@@ -43,7 +42,7 @@ const Footer = () => {
               className="w-full px-4 py-2 rounded-full text-black focus:outline-none"
             />
             <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 mt-3 rounded-full">
-              Signup
+              Hola
             </button>
           </div>
         </div>
