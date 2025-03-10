@@ -27,13 +27,13 @@ const Header = () => {
     <section className="w-full min-h-screen flex flex-col items-center justify-center bg-gray-100 px-6 lg:px-10 pt-20">
       {/* H1 & Paragraph Section */}
       <div className="w-full flex flex-col lg:flex-row items-center lg:justify-between max-w-6xl text-center lg:text-left">
-        <h1 className="text-3xl lg:text-5xl font-bold text-primary leading-tight">
+        <h1 className="text-3xl lg:text-5xl font-bold text-textBlue leading-tight">
           Drive into <br />
           <span className="text-accent italic">creativity</span> with our <br />
           <span className="text-secondary italic">gallery collection</span>
         </h1>
         <div className="max-w-md mt-4 lg:mt-0">
-          <p className="text-base lg:text-lg text-gray-600">
+          <p className="text-base lg:text-lg text-primary">
             Explore our curated gallery collections, featuring captivating works
             from renowned artists. Immerse yourself in upcoming exhibitions and
             events that celebrate creativity.

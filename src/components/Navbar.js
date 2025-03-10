@@ -7,7 +7,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <nav className="flex justify-between items-center py-4 px-8 bg-[rgba(255,255,255,0.25)] backdrop-blur-md fixed w-full z-20">
-      <div className="text-2xl font-bold text-primary">DZilla</div>
+      <div className="text-2xl font-bold text-textBlue">DZilla</div>
       
       <div className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
         {isOpen ? <X size={30} /> : <Menu size={30} />}
