@@ -1,12 +1,11 @@
-import React from 'react'
-import { FaPhoneAlt } from 'react-icons/fa'
-import {IoMailUnreadOutline} from 'react-icons/io5'
+import React from 'react';
+import { FaPhoneAlt } from 'react-icons/fa';
+import { IoMailUnreadOutline } from 'react-icons/io5';
 
 const Footer = () => {
   return (
     <footer className="text-white py-10 px-6 md:px-16 bg-cover bg-center"
-    style={{ backgroundImage: "url('/images/darkblue.jpg')" }}
-    >
+      style={{ backgroundImage: "url('/images/darkblue.jpg')" }}>
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 text-center md:text-left">
         
         {/* Logo Section */}
@@ -18,9 +17,21 @@ const Footer = () => {
         <div>
           <h3 className="font-semibold text-lg mb-3">Quick Links</h3>
           <ul className="space-y-2">
-            <li><a href="#" className="hover:text-gray-400">About us</a></li>
-            <li><a href="#" className="hover:text-gray-400">Collections</a></li>
-            <li><a href="#" className="hover:text-gray-400">Events</a></li>
+            {[
+              { text: "About us", link: "#" },
+              { text: "Collections", link: "#" },
+              { text: "Events", link: "#" }
+            ].map((item, index) => (
+              <li key={index} className="relative group pl-4">
+                <a
+                  href={item.link}
+                  className="hover:text-secondary text-white transition-all duration-300 flex items-center"
+                >
+                  <span className="absolute left-0 opacity-0 group-hover:opacity-100 transition-opacity text-secondary">&gt;</span>
+                  {item.text}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -28,8 +39,12 @@ const Footer = () => {
         <div>
           <h3 className="font-semibold text-lg mb-3">Contact Us</h3>
           <p>Nairobi, Kenya</p>
-          <p className="mt-2"><FaPhoneAlt/>(617) 987-6543</p>
-          <p><IoMailUnreadOutline />info@museumwp.com</p>
+          <p className="mt-2 flex items-center space-x-2">
+            <FaPhoneAlt /><span>(617) 987-6543</span>
+          </p>
+          <p className="flex items-center space-x-2">
+            <IoMailUnreadOutline /><span>info@museumwp.com</span>
+          </p>
         </div>
 
         {/* Newsletter Signup */}
@@ -39,11 +54,13 @@ const Footer = () => {
             <input
               type="email"
               placeholder="Enter your email"
-              className="w-full px-4 py-2 rounded-full text-black focus:outline-none"
+              className="w-full px-4 py-2 rounded-full text-black focus:outline-none border border-gray-300"
             />
-            <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 mt-3 rounded-full">
-              Hola
-            </button>
+            <a href="mailto:info@museumwp.com?subject=Newsletter Signup" className="w-full">
+              <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 mt-3 rounded-full w-full">
+                Send
+              </button>
+            </a>
           </div>
         </div>
 
@@ -54,7 +71,7 @@ const Footer = () => {
         © Copyright 2024. All Rights Reserved by Artfy
       </div>
     </footer>
-  )
+  );
 }
 
-export default Footer
+export default Footer;
