@@ -4,7 +4,7 @@ import { IoMailUnreadOutline } from 'react-icons/io5';
 
 const Footer = () => {
   return (
-    <footer className="text-white py-10 px-6 md:px-16 bg-cover bg-center"
+    <footer id='footer' className="text-white py-10 px-6 md:px-16 bg-cover bg-center"
       style={{ backgroundImage: "url('/images/darkblue.jpg')" }}>
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 text-center md:text-left">
         
@@ -40,7 +40,7 @@ const Footer = () => {
           <h3 className="font-semibold text-lg mb-3">Contact Us</h3>
           <p>Nairobi, Kenya</p>
           <p className="mt-2 flex items-center space-x-2">
-            <FaPhoneAlt /><span>(254) 7987-6543</span>
+            <FaPhoneAlt /><span>(254) 791 083 661</span>
           </p>
           <p className="flex items-center space-x-2">
             <IoMailUnreadOutline /><span>info@museumwp.com</span>

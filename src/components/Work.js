@@ -20,7 +20,7 @@ const Work = () => {
       : projects.filter((project) => project.category === selectedCategory);
 
   return (
-    <section className="flex flex-col md:flex-row p-6 gap-6">
+    <section className="flex flex-col md:flex-row p-6 gap-6" id="collections">
       {/* Sidebar */}
       <div className="w-full md:w-1/4 border-r border-gray-300 pr-4">
         <h2 className="text-3xl font-bold text-textBlue">Featured <span className="text-orange-500 italic relative top-0.5">Work</span></h2>
