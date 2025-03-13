@@ -18,9 +18,9 @@ const Footer = () => {
           <h3 className="font-semibold text-lg mb-3">Quick Links</h3>
           <ul className="space-y-2">
             {[
-              { text: "About us", link: "#" },
-              { text: "Collections", link: "#" },
-              { text: "Events", link: "#" }
+              { text: "About us", link: "#about" },
+              { text: "Collections", link: "#collections" },
+              { text: "Events", link: "#catalogue" }
             ].map((item, index) => (
               <li key={index} className="relative group pl-4">
                 <a
@@ -40,7 +40,7 @@ const Footer = () => {
           <h3 className="font-semibold text-lg mb-3">Contact Us</h3>
           <p>Nairobi, Kenya</p>
           <p className="mt-2 flex items-center space-x-2">
-            <FaPhoneAlt /><span>(617) 987-6543</span>
+            <FaPhoneAlt /><span>(254) 7987-6543</span>
           </p>
           <p className="flex items-center space-x-2">
             <IoMailUnreadOutline /><span>info@museumwp.com</span>
@@ -56,7 +56,7 @@ const Footer = () => {
               placeholder="Enter your email"
               className="w-full px-4 py-2 rounded-full text-black focus:outline-none border border-gray-300"
             />
-            <a href="mailto:info@museumwp.com?subject=Newsletter Signup" className="w-full">
+            <a href="mailto:info@museumwp.com?subject=Contact Signup" className="w-full">
               <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 mt-3 rounded-full w-full">
                 Send
               </button>
@@ -68,7 +68,7 @@ const Footer = () => {
 
       {/* Copyright Section */}
       <div className="text-center mt-6 text-sm border-t border-gray-600 pt-4">
-        © Copyright 2024. All Rights Reserved by Artfy
+        © Copyright 2025. All Rights Reserved by Dave
       </div>
     </footer>
   );
