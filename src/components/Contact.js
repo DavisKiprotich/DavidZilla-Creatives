@@ -1,5 +1,7 @@
 import React from 'react'
-import { FaGithub, FaDiscord, FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube, FaWhatsapp } from "react-icons/fa";
+import { FaGithub, FaDiscord, FaFacebook, FaInstagram, FaLinkedin, FaYoutube, FaWhatsapp } from "react-icons/fa";
+import {FaXTwitter} from 'react-icons/fa6';
+
 
 const Contact = () => {
   return (
@@ -16,13 +18,13 @@ const Contact = () => {
           <div className="mt-6">
             <h3 className="text-lg font-semibold">Follow us</h3>
             <div className="flex flex-wrap gap-3 mt-3">
-              <span className="bg-secondary p-2 rounded-lg"><FaGithub size={20} className="text-white" /></span>
-              <span className="bg-secondary p-2 rounded-lg"><FaFacebook size={20} className="text-white" /></span>
-              <span className="bg-secondary p-2 rounded-lg"><FaTwitter size={20} className="text-white" /></span>
-              <span className="bg-secondary p-2 rounded-lg"><FaInstagram size={20} className="text-white" /></span>
-              <span className="bg-secondary p-2 rounded-lg"><FaLinkedin size={20} className="text-white" /></span>
-              <span className="bg-secondary p-2 rounded-lg"><FaYoutube size={20} className="text-white" /></span>
-              <span className="bg-secondary p-2 rounded-lg"><FaWhatsapp size={20} className="text-white" /></span>
+              <span className="bg-secondary p-2 rounded-lg hover:bg-gray-100"><FaGithub size={20} className="text-white hover:text-textBlue" /></span>
+              <span className="bg-secondary p-2 rounded-lg hover:bg-gray-100"><FaFacebook size={20} className="text-white hover:text-textBlue" /></span>
+              <span className="bg-secondary p-2 rounded-lg hover:bg-gray-100"><FaXTwitter size={20} className="text-white hover:text-textBlue" /></span>
+              <span className="bg-secondary p-2 rounded-lg hover:bg-gray-100"><FaInstagram size={20} className="text-white hover:text-textBlue" /></span>
+              <span className="bg-secondary p-2 rounded-lg hover:bg-gray-100"><FaLinkedin size={20} className="text-white hover:text-textBlue" /></span>
+              <span className="bg-secondary p-2 rounded-lg hover:bg-gray-100"><FaYoutube size={20} className="text-white hover:text-textBlue" /></span>
+              <span className="bg-secondary p-2 rounded-lg hover:bg-gray-100"><FaWhatsapp size={20} className="text-white hover:text-textBlue" /></span>
             </div>
           </div>
         </div>
