@@ -2,9 +2,9 @@
 import React, { useState } from "react";
 import { IoMdArrowRoundForward } from "react-icons/io";
 
-const categories = ["All", "Art", "Fashion", "Automotive", "Book"];
+const categories = ["All", "Logo", "Banner", "Business Cards", "Flyers"];
 const projects = [
-  { id: 1, title: "Japanese Antiquity", category: "Art", image: "/images/art1.jpg" },
+  { id: 1, title: "Japanese Antiquity", category: "Logo", image: "/images/art1.jpg" },
   { id: 2, title: "Modern Fashion", category: "Fashion", image: "/images/fashion1.jpg" },
   { id: 3, title: "Car Innovations", category: "Automotive", image: "/images/auto1.jpg" },
   { id: 4, title: "Famous Novels", category: "Book", image: "/images/book1.jpg" },

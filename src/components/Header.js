@@ -1,16 +1,15 @@
 "use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-// import ImageCarousel from "./ImageCarousel";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import Image from "next/image";
 
 const images = [
-  { src: "/images/africa.jpg", title: "Rainy Streets", tilt: "-10deg" },
-  { src: "/images/bab.jpg", title: "Spring Harmony", tilt: "-5deg" },
-  { src: "/images/beau.jpg", title: "Keeper of the Night", tilt: "0deg" }, // Center image upright
-  { src: "/images/makeup.jpg", title: "City Stroll", tilt: "5deg" },
-  { src: "/images/test.jpg", title: "Mystic Waterfalls", tilt: "10deg" },
+  { src: "/images/Modicum logo.jpg", title: "Modicum", tilt: "-10deg" },
+  { src: "/images/waridi logo.jpg", title: "Waridih", tilt: "-5deg" },
+  { src: "/images/elite logo.jpg", title: "Elite Task Hub", tilt: "0deg" }, // Center image upright
+  { src: "/images/black logo.jpg", title: "Black Coffee", tilt: "5deg" },
+  { src: "/images/juvington logo.jpg", title: "Juvington travels", tilt: "10deg" },
 ];
 const Header = () => {
   const [index, setIndex] = useState(2); // Start with the middle image
@@ -38,8 +37,8 @@ const Header = () => {
             from renowned artists. Immerse yourself in upcoming exhibitions and
             events that celebrate creativity.
           </p>
-          <button className="mt-4 px-6 py-2 bg-secondary text-white rounded-lg shadow-md">
-            Explore Collection
+          <button className="mt-4 px-6 py-2 bg-secondary text-white rounded-lg shadow-md hover:bg-gray-200 hover:text-secondary">
+          <a href="#collections">Explore Collection</a>
           </button>
         </div>
       </div>
