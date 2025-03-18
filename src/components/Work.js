@@ -4,9 +4,9 @@ import { IoMdArrowRoundForward } from "react-icons/io";
 
 const categories = ["All", "Logo", "Banner", "Business Cards", "Flyers"];
 const projects = [
-  { id: 1, title: "Japanese Antiquity", category: "Logo", image: "/images/art1.jpg" },
-  { id: 2, title: "Modern Fashion", category: "Fashion", image: "/images/fashion1.jpg" },
-  { id: 3, title: "Car Innovations", category: "Automotive", image: "/images/auto1.jpg" },
+  { id: 1, title: "Divine Circuits", category: "Logo", image: "/images/circuits Logo.jpg" },
+  { id: 2, title: "Alopias", category: "Logo", image: "/images/alopias logo.jpg" },
+  { id: 3, title: "Ahsante", category: "Logo", image: "/images/ahsante logo.jpg" },
   { id: 4, title: "Famous Novels", category: "Book", image: "/images/book1.jpg" },
   { id: 5, title: "Sculpture Showcase", category: "Art", image: "/images/art2.jpg" },
 ];
@@ -43,12 +43,12 @@ const Work = () => {
       </div>
 
       {/* Projects Grid */}
-      <div className="w-full md:w-3/4 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="w-full md:w-3/4 h-[400px] overflow-y-auto grid grid-cols-1 md:grid-cols-2 gap-6">
         {filteredProjects.map((project) => (
           <div key={project.id} className="flex space-x-4 bg-white shadow-md rounded-lg p-4">
             <img src={project.image} alt={project.title} className="w-24 h-24 object-cover rounded-lg" />
             <div>
-              <h3 className="text-xl font-bold text-textBlue">{project.title}</h3>
+              <h3 className="text-l font-light text-textBlue">{project.title}</h3>
               <p className="text-gray-500 text-sm">Category: {project.category}</p>
               <a href="#" className="text-orange-500 mt-2 inline-block">Details →</a>
             </div>
