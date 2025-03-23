@@ -5,9 +5,9 @@ import { IoMdArrowRoundForward } from "react-icons/io";
 const categories = ["All", "Logo", "Banner", "Business Cards", "Flyers"];
 const projects = [
   { id: 1, title: "Divine Circuits", category: "Logo", image: "/images/circuits Logo.jpg" },
-  { id: 2, title: "Alopias", category: "Logo", image: "/images/alopias logo.jpg" },
+  { id: 2, title: "Famous Novels", category: "Book", image: "/images/book1.jpg" },
   { id: 3, title: "Ahsante", category: "Logo", image: "/images/ahsante logo.jpg" },
-  { id: 4, title: "Famous Novels", category: "Book", image: "/images/book1.jpg" },
+  { id: 4, title: "Alopias", category: "Logo", image: "/images/alopias logo.jpg" },
   { id: 5, title: "Sculpture Showcase", category: "Art", image: "/images/art2.jpg" },
 ];
 
