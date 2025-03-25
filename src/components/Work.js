@@ -14,7 +14,7 @@ const projects = [
   { id: 8, title: "Aivapor Dark", category: "Logo", image: "/images/aivapor dark logo.jpg" },
   { id: 9, title: "Ceelusive", category: "Logo", image: "/images/ceelusive banner.jpg" },
   { id: 10, title: "Blessings", category: "Flyer", image: "/images/cup flyer.jpg" },
-  { id: 11, title: "Circuits", category: "Logo", image: "/images/circuits Logo.jpg" },
+  { id: 11, title: "Global", category: "Logo", image: "/images/global logo.jpg" },
   { id: 12, title: "Asante", category: "Flyer", image: "/images/Asante flyer.jpg" },
   { id: 13, title: "Gospel Drill", category: "Flyer", image: "/images/drill flyer.jpg" },
   { id: 14, title: "Black Coffee", category: "Logo", image: "/images/black logo.jpg" },
@@ -30,11 +30,11 @@ const projects = [
   { id: 24, title: "Juvington", category: "Logo", image: "/images/juvington logo.jpg"},
   { id: 25, title: "Kalroi", category: "Flyer", image: "/images/kalroi flyer.jpg"},
   { id: 26, title: "KD", category: "Logo", image: "/images/kd flyer.jpg"},
-  { id: 25, title: "Housemaid in need", category: "Flyer", image: "/images/housemaid flyer.jpg"},
-  { id: 25, title: "Ino Banner", category: "Flyer", image: "/images/ino banner.jpg"},
-  { id: 25, title: "JKris", category: "Logo", image: "/images/jkris logo.jpg"},
-  { id: 25, title: "Graduation Flyer", category: "Logo", image: "/images/graduation flyer.jpg"},
-  { id: 25, title: "Gospel", category: "Flyer", image: "/images/gospel flyer.jpg"},
+  { id: 27, title: "Housemaid in need", category: "Flyer", image: "/images/housemaid flyer.jpg"},
+  { id: 28, title: "Ino Banner", category: "Flyer", image: "/images/ino banner.jpg"},
+  { id: 29, title: "JKris", category: "Logo", image: "/images/jkris logo.jpg"},
+  { id: 30, title: "Graduation Flyer", category: "Logo", image: "/images/graduation flyer.jpg"},
+  { id: 31, title: "Gospel", category: "Flyer", image: "/images/gospel flyer.jpg"},
 ];
 
 const Work = () => {
