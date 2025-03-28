@@ -27,7 +27,6 @@ const Footer = () => {
                   href={item.link}
                   className="hover:text-secondary text-white transition-all duration-300 flex items-center"
                 >
-                  <span className="absolute left-0 opacity-0 group-hover:opacity-100 transition-opacity text-secondary">&gt;</span>
                   {item.text}
                 </a>
               </li>

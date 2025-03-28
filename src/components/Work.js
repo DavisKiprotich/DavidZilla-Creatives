@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { IoMdArrowRoundForward } from "react-icons/io";
 
-const categories = ["All", "Logo", "Business Card", "Flyer"];
+const categories = ["All", "Logo", "Business Card", "Flyer", "Company Profile"];
 const projects = [
   { id: 1, title: "Divine Circuits", category: "Logo", image: "/images/circuits Logo.jpg" },
   { id: 2, title: "Famous Novels", category: "Flyer", image: "/images/Acute flyer.jpg" },
@@ -35,6 +35,8 @@ const projects = [
   { id: 29, title: "JKris", category: "Logo", image: "/images/jkris logo.jpg"},
   { id: 30, title: "Graduation Flyer", category: "Logo", image: "/images/graduation flyer.jpg"},
   { id: 31, title: "Gospel", category: "Flyer", image: "/images/gospel flyer.jpg"},
+  { id: 32, title: "Global", category: "Company Profile", image: "/images/Global Company1.jpg"},
+  { id: 33, title: "Kwint", category: "Logo", image: "/images/kwint logo.jpg"},
 ];
 
 const Work = () => {
