@@ -2,8 +2,30 @@ import React from 'react'
 import { FaGithub, FaDiscord, FaFacebook, FaInstagram, FaLinkedin, FaYoutube, FaWhatsapp } from "react-icons/fa";
 import {FaXTwitter} from 'react-icons/fa6';
 
+import emailjs from '@emailjs/browser';
+import toast from 'react-hot-toast';
+
 
 const Contact = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm('service_uv42igf', 'template_eyex5t7', form.current, {
+        publicKey: 'U3yC0Wy8F6yvOuLKm',
+      })
+      .then(
+        () => {
+          toast.success('Rocketed Out');
+        },
+        (error) => {
+          toast.error(error);
+        },
+      );
+      e.target.reset();
+  };
   return (
       <div className="bg-gray-100 text-textBlue min-h-screen flex items-center justify-center p-6" id='contact'>
       <div className="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -18,19 +40,19 @@ const Contact = () => {
           <div className="mt-6">
             <h3 className="text-lg font-semibold">Follow us</h3>
             <div className="flex flex-wrap gap-3 mt-3">
-              <span className="bg-secondary p-2 rounded-lg hover:bg-gray-100"><FaGithub size={20} className="text-white hover:text-textBlue" /></span>
-              <span className="bg-secondary p-2 rounded-lg hover:bg-gray-100"><FaFacebook size={20} className="text-white hover:text-textBlue" /></span>
-              <span className="bg-secondary p-2 rounded-lg hover:bg-gray-100"><FaXTwitter size={20} className="text-white hover:text-textBlue" /></span>
-              <span className="bg-secondary p-2 rounded-lg hover:bg-gray-100"><FaInstagram size={20} className="text-white hover:text-textBlue" /></span>
-              <span className="bg-secondary p-2 rounded-lg hover:bg-gray-100"><FaLinkedin size={20} className="text-white hover:text-textBlue" /></span>
-              <span className="bg-secondary p-2 rounded-lg hover:bg-gray-100"><FaYoutube size={20} className="text-white hover:text-textBlue" /></span>
-              <span className="bg-secondary p-2 rounded-lg hover:bg-gray-100"><FaWhatsapp size={20} className="text-white hover:text-textBlue" /></span>
+              <a className="bg-secondary p-2 rounded-lg hover:bg-gray-100"><FaGithub size={20} className="text-white hover:text-textBlue" hr/></a>
+              <a href='' target='' rel="noopener noreferrer" className="bg-secondary p-2 rounded-lg hover:bg-gray-100"><FaFacebook size={20} className="text-white hover:text-textBlue" /></a>
+              <a href='' target='' rel="noopener noreferrer" className="bg-secondary p-2 rounded-lg hover:bg-gray-100"><FaXTwitter size={20} className="text-white hover:text-textBlue" /></a>
+              <a href='' target='' rel="noopener noreferrer" className="bg-secondary p-2 rounded-lg hover:bg-gray-100"><FaInstagram size={20} className="text-white hover:text-textBlue" /></a>
+              <a href='' target='' rel="noopener noreferrer" className="bg-secondary p-2 rounded-lg hover:bg-gray-100"><FaLinkedin size={20} className="text-white hover:text-textBlue" /></a>
+              <a href='' target='' rel="noopener noreferrer" className="bg-secondary p-2 rounded-lg hover:bg-gray-100"><FaYoutube size={20} className="text-white hover:text-textBlue" /></a>
+              <a href='' target='' rel="noopener noreferrer" className="bg-secondary p-2 rounded-lg hover:bg-gray-100"><FaWhatsapp size={20} className="text-white hover:text-textBlue" /></a>
             </div>
           </div>
         </div>
 
         {/* Right Section (Form) */}
-        <div className="bg-gray-100 p-6 rounded-lg shadow-md w-full">
+        <div className=" bg-gray-100 p-6 rounded-lg shadow-md w-full">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block font-normal">Name</label>
