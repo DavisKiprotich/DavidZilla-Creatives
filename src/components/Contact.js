@@ -73,7 +73,7 @@ const Contact = () => {
             </div>
             <div className="mt-4">
               <label className="block font-normal" htmlFor="message">Your Message</label>
-              <textarea id='message' name="message" className="w-full p-2 rounded border border-gray-300 h-28" id="message" placeholder="Hello, I would like to talk about..."></textarea>
+              <textarea id='message' name="message" className="w-full p-2 rounded border border-gray-300 h-28" placeholder="Hello, I would like to talk about..."></textarea>
             </div>
             <button type="submit" value="Send" className="mt-4 bg-secondary text-white px-6 py-2 rounded-lg w-full">
               <span>Send Message</span>
