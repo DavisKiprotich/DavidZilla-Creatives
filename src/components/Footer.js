@@ -42,7 +42,7 @@ const Footer = () => {
             <FaPhoneAlt /><span>(254) 791 083 661</span>
           </p>
           <p className="flex items-center space-x-2">
-            <IoMailUnreadOutline /><span>info@museumwp.com</span>
+            <IoMailUnreadOutline /><span>dzillacreative@gmail.com</span>
           </p>
         </div>
 
@@ -55,7 +55,7 @@ const Footer = () => {
               placeholder="Enter your email"
               className="w-full px-4 py-2 rounded-full text-black focus:outline-none border border-gray-300"
             />
-            <a href="mailto:info@museumwp.com?subject=Contact Signup" className="w-full">
+            <a href="mailto:dzillacreative@gmail.com?subject=Contact Signup" className="w-full">
               <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 mt-3 rounded-full w-full">
                 Send
               </button>

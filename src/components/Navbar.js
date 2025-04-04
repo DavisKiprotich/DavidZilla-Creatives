@@ -31,7 +31,7 @@ const Navbar = () => {
 
       {/* Mobile Menu - Fullscreen Dropdown */}
       {isOpen && (
-        <ul className="absolute top-16 right-0 w-half bg-transparent p-4 shadow-md flex flex-col space-y-4 md:hidden ">
+        <ul className="absolute top-16 right-0 w-half bg-gray-100 p-4 shadow-md flex flex-col space-y-4 md:hidden ">
           <li className='hover:text-secondary'><Link href="/">Home</Link></li>
           <li className='hover:text-secondary'><Link href="#about">About Us</Link></li>
           <li className='hover:text-secondary'><Link href="#collections">Collections</Link></li>
