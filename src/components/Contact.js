@@ -1,6 +1,6 @@
 'use client'
 import React, { useRef } from 'react'
-import { FaGithub, FaDiscord, FaFacebook, FaInstagram, FaLinkedin, FaYoutube, FaWhatsapp } from "react-icons/fa";
+import { FaGithub, FaDiscord, FaFacebook, FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import {FaXTwitter} from 'react-icons/fa6';
 
 import emailjs from '@emailjs/browser';
@@ -41,27 +41,25 @@ const Contact = () => {
           <div className="mt-6">
             <h3 className="text-lg font-semibold">Follow us</h3>
             <div className="flex flex-wrap gap-3 mt-3">
-              <a className="bg-secondary p-2 rounded-lg hover:bg-gray-100"><FaGithub size={20} className="text-white hover:text-textBlue" hr/></a>
-              <a href='' target='_blank' rel="noopener noreferrer" className="bg-secondary p-2 rounded-lg hover:bg-gray-100"><FaFacebook size={20} className="text-white hover:text-textBlue" /></a>
+              <a href='https://www.facebook.com/share/1KrqdHHdmV/' target='_blank' rel="noopener noreferrer" className="bg-secondary p-2 rounded-lg hover:bg-gray-100"><FaFacebook size={20} className="text-white hover:text-textBlue" /></a>
               <a href='' target='_blank' rel="noopener noreferrer" className="bg-secondary p-2 rounded-lg hover:bg-gray-100"><FaXTwitter size={20} className="text-white hover:text-textBlue" /></a>
-              <a href='' target='_blank' rel="noopener noreferrer" className="bg-secondary p-2 rounded-lg hover:bg-gray-100"><FaInstagram size={20} className="text-white hover:text-textBlue" /></a>
-              <a href='' target='_blank' rel="noopener noreferrer" className="bg-secondary p-2 rounded-lg hover:bg-gray-100"><FaLinkedin size={20} className="text-white hover:text-textBlue" /></a>
-              <a href='' target='_blank' rel="noopener noreferrer" className="bg-secondary p-2 rounded-lg hover:bg-gray-100"><FaYoutube size={20} className="text-white hover:text-textBlue" /></a>
-              <a href='' target='_blank' rel="noopener noreferrer" className="bg-secondary p-2 rounded-lg hover:bg-gray-100"><FaWhatsapp size={20} className="text-white hover:text-textBlue" /></a>
+              <a href='https://www.instagram.com/d_zillacreatives?igsh=Nm15aTl5MnVjZDIx' target='_blank' rel="noopener noreferrer" className="bg-secondary p-2 rounded-lg hover:bg-gray-100"><FaInstagram size={20} className="text-white hover:text-textBlue" /></a>
+              <a href='https://www.linkedin.com/in/david-ushindi-353305261' target='_blank' rel="noopener noreferrer" className="bg-secondary p-2 rounded-lg hover:bg-gray-100"><FaLinkedin size={20} className="text-white hover:text-textBlue" /></a>
+              <a href='https://wa.me/c/254791083661' target='_blank' rel="noopener noreferrer" className="bg-secondary p-2 rounded-lg hover:bg-gray-100"><FaWhatsapp size={20} className="text-white hover:text-textBlue" /></a>
             </div>
           </div>
         </div>
 
         {/* Right Section (Form) */}
-        <div className="bg-gray-100 p-6 rounded-lg shadow-md w-full">
+        <div ref={form} onSubmit={sendEmail} className="bg-gray-100 p-6 rounded-lg shadow-md w-full">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block font-normal">Name</label>
-              <input type="text" className="w-full p-2 rounded border border-gray-300" placeholder="John Carter" />
+              <input name='user_name' type="text" className="w-full p-2 rounded border border-gray-300" placeholder="John Omusula" required/>
             </div>
             <div>
               <label className="block font-normal">Email</label>
-              <input type="email" className="w-full p-2 rounded border border-gray-300" placeholder="example@youremail.com" />
+              <input name='user_email' type="email" className="w-full p-2 rounded border border-gray-300" placeholder="example@youremail.com" required/>
             </div>
             <div>
               <label className="block font-normal">Phone</label>
@@ -74,9 +72,9 @@ const Contact = () => {
           </div>
           <div className="mt-4">
             <label className="block font-normal">Message</label>
-            <textarea className="w-full p-2 rounded border border-gray-300 h-28" placeholder="Type your message here..."></textarea>
+            <textarea name='message' className="w-full p-2 rounded border border-gray-300 h-28" placeholder="Type your message here..." required></textarea>
           </div>
-          <button className="mt-4 bg-secondary text-white px-6 py-2 rounded-lg w-full">Send Message</button>
+          <button type='submit' value='send' className="mt-4 bg-secondary text-white px-6 py-2 rounded-lg w-full">Send Message</button>
         </div>
       </div>
     </div>
