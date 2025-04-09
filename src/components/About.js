@@ -9,7 +9,7 @@ const About = () => {
   const cards = [
     {
       id: "01",
-      title: "Задача",
+      title: "Logo Design",
       description:
         "Построить интуитивно понятную навигацию, которая упрощает пользователю процесс поиска, выбора и покупки украшений. Структура сайта должна вести клиента к целевому действию — оформлению заказа.",
       bgColor: "bg-yellow-200",
@@ -17,7 +17,7 @@ const About = () => {
     },
     {
       id: "02",
-      title: "Задача",
+      title: "Flyers",
       description:
         "Спроектировать сайт, который будет одинаково удобен для использования на любых устройствах — от мобильных телефонов до больших экранов.",
       bgColor: "bg-red-100",
@@ -25,15 +25,15 @@ const About = () => {
     },
     {
       id: "03",
-      title: "Задача",
+      title: "Company Profile",
       description:
         "Сделать процесс покупки простым, быстрым и приятным, чтобы пользователь мог легко принять решение и завершить оформление заказа.",
       bgColor: "bg-orange-400",
       rotate: "-rotate-2",
     },
     {
-      id: "04",
-      title: "Задача",
+      id: "Business Cards",
+      title: "",
       description:
         "Создать дизайн, который будет актуальным и функциональным в долгосрочной перспективе, учитывая возможное расширение ассортимента или развитие новых направлений.",
       bgColor: "bg-blue-300",
@@ -44,7 +44,7 @@ const About = () => {
     <section className="px-6 lg:px-24 py-12 bg-gray-200" id='about'>
       {/* Heading */}
       <h1 className="left-0 text-3xl lg:text-4xl font-bold mb-8 text-primary">
-          <span className="text-primary">Why We Rock!</span>
+          <span className="text-textBlue">Why We <span className='text-secondary'>Rock!</span></span>
       </h1>
 
       {/* Description for Small Screens */}
