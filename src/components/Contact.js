@@ -32,7 +32,7 @@ const Contact = () => {
       <div className="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Left Section */}
         <div>
-          <h2 className="text-4xl font-bold hover:text-secondary">Contact us</h2>
+          <h2 className="text-4xl font-bold text-textBlue">Contact us</h2>
           <p className="mt-3 text-black">
             Lorem ipsum dolor sit amet consectetur adipiscing elit amet diam in est pharetra
             porttitor libero netus nulla tempor cont.
