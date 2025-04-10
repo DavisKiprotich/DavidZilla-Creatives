@@ -49,7 +49,7 @@ const About = () => {
       </h1>
 
       {/* Description for Small Screens */}
-      <div className="block lg:hidden text-center px-6 py-4">
+      <div className="block md:hidden text-center px-6 py-4">
         <h2 className="text-lg font-semibold text-secondary">About Us</h2>
         <div className="w-12 h-0.5 bg-textBlue mx-auto my-2" />
         <p className="text-primary font-medium italic">
@@ -62,7 +62,7 @@ const About = () => {
       </div>
 
       {/* Card Container */}
-      <div className="sm:hidden lg:flex flex-wrap justify-center gap-4">
+      <div className="hidden md:flex flex-wrap justify-center gap-4">
         {cards.map((card, index) => (
           <div
             key={index}
