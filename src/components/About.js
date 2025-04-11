@@ -11,7 +11,7 @@ const About = () => {
       id: "01",
       title: "Logo Design",
       description:
-        "Where your brand’s personality meets pixels — we design logos that stick in minds and look sharp everywhere, from business cards to billboards.",
+        "Where your brand’s personality meets pixels:we design logos that stick in minds and look sharp everywhere, from business cards to billboards.",
       rotate: "-rotate-3",
     },
     {
