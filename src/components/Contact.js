@@ -34,8 +34,8 @@ const Contact = () => {
         <div>
           <h2 className="text-4xl font-bold text-textBlue">Contact us</h2>
           <p className="mt-3 text-black">
-            Lorem ipsum dolor sit amet consectetur adipiscing elit amet diam in est pharetra
-            porttitor libero netus nulla tempor cont.
+          We’re just a message away! Reach out to us through any of the platforms below or send us a quick note about your project — 
+          we’d love to hear what you have in mind and help bring your vision to reality.
           </p>
           
           <div className="mt-6">
@@ -51,15 +51,15 @@ const Contact = () => {
         </div>
 
         {/* Right Section (Form) */}
-        <div ref={form} onSubmit={sendEmail} className="bg-gray-100 p-6 rounded-lg shadow-md w-full">
+        <form ref={form} onSubmit={sendEmail}  className="bg-gray-100 p-6 rounded-lg shadow-md w-full">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block font-normal">Name</label>
-              <input name='user_name' type="text" className="w-full p-2 rounded border border-gray-300" placeholder="John Omusula" required/>
+              <input name='from_name' type="text" className="w-full p-2 rounded border border-gray-300" placeholder="John Omusula" required/>
             </div>
             <div>
               <label className="block font-normal">Email</label>
-              <input name='user_email' type="email" className="w-full p-2 rounded border border-gray-300" placeholder="example@youremail.com" required/>
+              <input name='from_email' type="email" className="w-full p-2 rounded border border-gray-300" placeholder="example@youremail.com" required/>
             </div>
             <div>
               <label className="block font-normal">Phone</label>
@@ -67,7 +67,7 @@ const Contact = () => {
             </div>
             <div>
               <label className="block font-normal">Subject</label>
-              <input type="text" className="w-full p-2 rounded border border-gray-300" placeholder="Ex. Careers" />
+              <input type="text" name='from_title' className="w-full p-2 rounded border border-gray-300" placeholder="Ex. Careers" />
             </div>
           </div>
           <div className="mt-4">
@@ -75,7 +75,7 @@ const Contact = () => {
             <textarea name='message' className="w-full p-2 rounded border border-gray-300 h-28" placeholder="Type your message here..." required></textarea>
           </div>
           <button type='submit' value='send' className="mt-4 bg-secondary text-white px-6 py-2 rounded-lg w-full">Send Message</button>
-        </div>
+        </form>
       </div>
     </div>
   )
