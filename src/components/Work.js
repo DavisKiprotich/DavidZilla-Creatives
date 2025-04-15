@@ -71,6 +71,7 @@ const Work = () => {
       </div>
 
       {/* Projects Grid */}
+      
       <div className="w-full md:w-3/4 h-[400px] overflow-y-auto grid grid-cols-1 md:grid-cols-2 gap-6">
         {filteredProjects.map((project) => (
           <div key={project.id} className="flex space-x-4 bg-white shadow-md rounded-lg p-4">
