@@ -49,9 +49,9 @@ const Work = () => {
 
   return (
     <section className="flex flex-col md:flex-row p-6 gap-6" id="collections">
+      <h2 className="text-3xl font-bold text-textBlue">Featured <span className="text-orange-500 italic relative top-0.5">Work</span></h2>
       {/* Sidebar */}
-      <div className="w-full md:w-1/4 border-r border-gray-300 pr-4">
-        <h2 className="text-3xl font-bold text-textBlue">Featured <span className="text-orange-500 italic relative top-0.5">Work</span></h2>
+      <div className="hidden md:block md:w-1/4 border-r border-gray-300 pr-4">
         <ul className="mt-4 flex flex-wrap md:flex-col gap-4 md:gap-2">
           {categories.map((category) => (
             <li
@@ -70,20 +70,54 @@ const Work = () => {
         </ul>
       </div>
 
-      {/* Projects Grid */}
-      
-      <div className="w-full md:w-3/4 h-[400px] overflow-y-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-        {filteredProjects.map((project) => (
-          <div key={project.id} className="flex space-x-4 bg-white shadow-md rounded-lg p-4">
-            <img src={project.image} alt={project.title} className="w-24 h-24 object-cover rounded-lg" />
-            <div>
-              <h3 className="text-l font-light text-textBlue">{project.title}</h3>
-              <p className="text-gray-500 text-sm">Category: {project.category}</p>
-              <a href={project.image} target="_blank" className="text-orange-500 mt-2 inline-block">Details</a>
-            </div>
-          </div>
-        ))}
+      {/* Mobile View with Sidebar - Visible only on small screens */}
+<div className="block md:hidden w-full h-[85vh] overflow-y-auto">
+  {/* Mobile Sidebar as horizontal scrollable category list */}
+  <div className="flex overflow-x-auto gap-4 py-2 border-b border-gray-200 mb-4">
+    {categories.map((category) => (
+      <button
+        key={category}
+        onClick={() => setSelectedCategory(category)}
+        className={`flex-shrink-0 px-4 py-2 rounded-full border text-sm whitespace-nowrap transition-colors duration-200 ${
+          selectedCategory === category
+            ? "bg-orange-500 text-white border-orange-500"
+            : "text-gray-700 border-gray-300"
+        }`}
+      >
+        {category}
+      </button>
+    ))}
+  </div>
+
+  {/* Mobile Image Grid */}
+  <div className="grid grid-cols-2 gap-4">
+    {filteredProjects.map((project) => (
+      <img
+        key={project.id}
+        src={project.image}
+        alt={project.title}
+        className="w-full h-auto rounded-xl object-cover"
+      />
+    ))}
+  </div>
+</div>
+
+
+
+      {/* Projects Grid - For md and up */}
+<div className="hidden md:grid w-full md:w-3/4 h-[400px] overflow-y-auto grid-cols-1 md:grid-cols-2 gap-6">
+  {filteredProjects.map((project) => (
+    <div key={project.id} className="flex space-x-4 bg-white shadow-md rounded-lg p-4">
+      <img src={project.image} alt={project.title} className="w-24 h-24 object-cover rounded-lg" />
+      <div>
+        <h3 className="text-l font-light text-textBlue">{project.title}</h3>
+        <p className="text-gray-500 text-sm">Category: {project.category}</p>
+        <a href={project.image} target="_blank" className="text-orange-500 mt-2 inline-block">Details</a>
       </div>
+    </div>
+  ))}
+</div>
+
     </section>
   )
 }
