@@ -4,6 +4,7 @@ import { IoMdArrowRoundForward } from "react-icons/io";
 
 
 const categories = ["All", "Logo", "Business Card", "Flyer", "Company Profile"];
+
 const projects = [
   {
     id: 1,
@@ -181,6 +182,39 @@ const projects = [
 ];
 
 const Work = () => {
+
+  // const [selectedCategory, setSelectedCategory] = useState("All");
+  // const [imageFile, setImageFile] = useState(null);
+  // const [uploadCategory, setUploadCategory] = useState("");
+  // const [uploadTitle, setUploadTitle] = useState("");
+
+  // const handleUpload = async () => {
+  //   if (!imageFile || !uploadCategory || !uploadTitle) {
+  //     alert("Please fill in all fields.");
+  //     return;
+  //   }
+
+  //   const formData = new FormData();
+  //   formData.append("file", imageFile);
+  //   formData.append("title", uploadTitle);
+  //   formData.append("category", uploadCategory);
+
+  //   try {
+  //     const res = await fetch("/api/upload", {
+  //       method: "POST",
+  //       body: formData,
+  //     });
+
+  //     if (res.ok) {
+  //       alert("Upload successful! Refresh the page to see the update.");
+  //     } else {
+  //       alert("Upload failed.");
+  //     }
+  //   } catch (err) {
+  //     console.error(err);
+  //     alert("An error occurred.");
+  //   }
+
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const filteredProjects =
