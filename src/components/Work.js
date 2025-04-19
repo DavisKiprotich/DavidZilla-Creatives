@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { IoMdArrowRoundForward } from "react-icons/io";
+import UploadForm from "./UploadForm";
 
 
 const categories = ["All", "Logo", "Business Card", "Flyer", "Company Profile"];
@@ -255,6 +256,11 @@ const Work = () => {
           ))}
         </ul>
       </div>
+
+      <section className="mb-10">
+        <h2 className="text-xl font-semibold mb-2">Upload Your Design</h2>
+        <UploadForm />
+      </section>
 
       {/* Upload Section - Only for Owner */}
       {/* <div className="mt-6 p-4 border border-dashed border-gray-300 rounded-lg">
