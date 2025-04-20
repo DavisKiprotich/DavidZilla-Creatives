@@ -184,38 +184,6 @@ const projects = [
 
 const Work = () => {
 
-  // const [selectedCategory, setSelectedCategory] = useState("All");
-  // const [imageFile, setImageFile] = useState(null);
-  // const [uploadCategory, setUploadCategory] = useState("");
-  // const [uploadTitle, setUploadTitle] = useState("");
-
-  // const handleUpload = async () => {
-  //   if (!imageFile || !uploadCategory || !uploadTitle) {
-  //     alert("Please fill in all fields.");
-  //     return;
-  //   }
-
-  //   const formData = new FormData();
-  //   formData.append("file", imageFile);
-  //   formData.append("title", uploadTitle);
-  //   formData.append("category", uploadCategory);
-
-  //   try {
-  //     const res = await fetch("/api/upload", {
-  //       method: "POST",
-  //       body: formData,
-  //     });
-
-  //     if (res.ok) {
-  //       alert("Upload successful! Refresh the page to see the update.");
-  //     } else {
-  //       alert("Upload failed.");
-  //     }
-  //   } catch (err) {
-  //     console.error(err);
-  //     alert("An error occurred.");
-  //   }
-
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const filteredProjects =
@@ -261,35 +229,6 @@ const Work = () => {
         <h2 className="text-xl font-semibold mb-2">Upload Your Design</h2>
         <UploadForm />
       </section>
-
-      {/* Upload Section - Only for Owner */}
-      {/* <div className="mt-6 p-4 border border-dashed border-gray-300 rounded-lg">
-        <h3 className="text-lg font-semibold mb-2 text-gray-700">
-          Upload New Image
-        </h3>
-
-        <input
-          type="file"
-          accept="image/*"
-          onChange={(e) => setImageToUpload(e.target.files[0])}
-          className="block w-full mb-2 text-sm text-gray-600"
-        />
-
-        <input
-          type="text"
-          placeholder="Category"
-          value={uploadCategory}
-          onChange={(e) => setUploadCategory(e.target.value)}
-          className="block w-full px-3 py-2 border rounded-md text-sm mb-2"
-        />
-
-        <button
-          onClick={handleUpload}
-          className="w-full bg-orange-500 text-white py-2 rounded-md text-sm font-semibold hover:bg-orange-600"
-        >
-          Upload
-        </button>
-      </div> */}
 
       {/* Mobile View with Sidebar - Visible only on small screens */}
       <div className="block md:hidden w-full h-[85vh] overflow-y-auto">
