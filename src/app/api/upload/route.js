@@ -1,5 +1,4 @@
-import { writeFile, mkdir, readFile } from 'fs/promises'
-import { existsSync } from 'fs'
+import { writeFile, mkdir, readFile, existsSync } from 'fs/promises'
 import path from 'path'
 import { NextResponse } from 'next/server'
 
@@ -16,26 +15,38 @@ export async function POST(request) {
   const bytes = await file.arrayBuffer()
   const buffer = Buffer.from(bytes)
 
-  const uploadDir = path.join(process.cwd(), 'public', 'uploads')
-  if (!existsSync(uploadDir)) await mkdir(uploadDir, { recursive: true })
+  const safeCategory = category.replace(/[^a-zA-Z0-9-_ ]/g, '')
+  const safeTitle = title.replace(/[^a-zA-Z0-9-_ ]/g, '')
+  const ext = file.name.split('.').pop()
+  const fileName = `${safeTitle.trim().replace(/\s+/g, '-')}.${ext}`
 
-  const filename = `${Date.now()}_${file.name}`
-  const filePath = path.join(uploadDir, filename)
-  await writeFile(filePath, buffer)
+  const uploadDir = path.join(process.cwd(), 'public', 'uploads', safeCategory)
+  const metadataPath = path.join(process.cwd(), 'public', 'uploads', 'projects.json')
 
-  // Update project list
-  const jsonPath = path.join(uploadDir, 'projects.json')
-  const existingData = existsSync(jsonPath) ? JSON.parse(await readFile(jsonPath, 'utf-8')) : []
-
-  const newProject = {
-    id: Date.now(),
-    title,
-    category,
-    image: `/uploads/${filename}`,
+  if (!existsSync(uploadDir)) {
+    await mkdir(uploadDir, { recursive: true })
   }
 
-  existingData.push(newProject)
-  await writeFile(jsonPath, JSON.stringify(existingData, null, 2))
+  const filePath = path.join(uploadDir, fileName)
+  await writeFile(filePath, buffer)
+
+  // ✅ Save metadata
+  const newProject = {
+    title,
+    category,
+    image: `/uploads/${safeCategory}/${fileName}`,
+  }
+
+  let existingProjects = []
+  try {
+    const content = await readFile(metadataPath, 'utf-8')
+    existingProjects = JSON.parse(content)
+  } catch (err) {
+    existingProjects = []
+  }
+
+  existingProjects.push(newProject)
+  await writeFile(metadataPath, JSON.stringify(existingProjects, null, 2))
 
   return NextResponse.json({ success: true, path: newProject.image })
 }
