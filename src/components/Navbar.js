@@ -9,7 +9,7 @@ const Navbar = () => {
   const { data: session } = useSession();
 
   const handleLogin = () => {
-    signIn('google', { callbackUrl: '/upload' }); // redirect to /upload after login
+    signIn('google', { callbackUrl: '/' }); // redirect to /home after login
   }
 
   return (
@@ -22,7 +22,7 @@ const Navbar = () => {
         <li><Link href="/">Home</Link></li>
         <li><Link href="#about">About Us</Link></li>
         <li><Link href="#collections">Collections</Link></li>
-        <li><Link href="#post">Post</Link></li>
+        <li><Link href="#contact">Contact</Link></li>
       </ul>
 
       {/* Contact Us (Only for large screens) */}
@@ -55,7 +55,7 @@ const Navbar = () => {
           <li className='hover:text-secondary'><Link href="/">Home</Link></li>
           <li className='hover:text-secondary'><Link href="#about">About Us</Link></li>
           <li className='hover:text-secondary'><Link href="#collections">Collections</Link></li>
-          <li className='hover:text-secondary'><Link href="#post">Post</Link></li>
+          <li className='hover:text-secondary'><Link href="#contact">Contact Us</Link></li>
           <li className='hover:text-secondary'>
             {!session ? (
               <button onClick={handleLogin}>Login</button>

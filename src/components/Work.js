@@ -3,12 +3,14 @@ import React, { useEffect, useState } from "react";
 import { IoMdArrowRoundForward } from "react-icons/io";
 import UploadForm from "./UploadForm";
 import StaticProjects from "@/lib/StaticProjects";
+import { useSession } from "next-auth/react";
 
 const categories = ["All", "Logo", "Business Card", "Flyer", "Company Profile"];
 
 const Work = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [uploadedProjects, setUploadedProjects] = useState([]);
+  const { data: session } = useSession(); // 👈 Access the session
 
   useEffect(() => {
     const fetchUploadedProjects = async () => {
@@ -68,11 +70,13 @@ const Work = () => {
         </ul>
       </div>
 
-      {/* Upload Form */}
-      <section className="mb-10">
-        <h2 className="text-xl font-semibold mb-2">Upload Your Design</h2>
-        <UploadForm />
-      </section>
+      {/* Upload Form - Only show if user is signed in */}
+      {session && (
+        <section className="mb-10">
+          <h2 className="text-xl font-semibold mb-2">Upload Your Design</h2>
+          <UploadForm />
+        </section>
+      )}
 
       {/* Projects Display */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full md:w-3/4 overflow-y-auto max-h-[85vh]">
