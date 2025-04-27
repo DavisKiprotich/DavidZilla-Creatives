@@ -31,9 +31,9 @@ export default function UploadForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-4 border p-4 rounded-md">
-      <input type="text" placeholder="Title" className="w-full" value={title} onChange={(e) => setTitle(e.target.value)} />
-      <select value={category} onChange={(e) => setCategory(e.target.value)} className="w-full">
+    <form onSubmit={onSubmit} className="space-y-4 border p-4 rounded-md text-secondary">
+      <input type="text" placeholder="Name of the file" className="w-full p-1 rounded-sm border border-textBlue" value={title} onChange={(e) => setTitle(e.target.value)} />
+      <select value={category} onChange={(e) => setCategory(e.target.value)} className="w-full text-textBlue border border-textBlue">
         <option>Logo</option>
         <option>Business Card</option>
         <option>Flyer</option>
