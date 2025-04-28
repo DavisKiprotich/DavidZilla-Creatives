@@ -33,7 +33,9 @@ const Work = () => {
   const filteredProjects =
     selectedCategory === "All"
       ? combinedProjects
-      : combinedProjects.filter((project) => project.category === selectedCategory);
+      : combinedProjects.filter(
+          (project) => project.category === selectedCategory
+        );
 
   return (
     <section className="flex flex-col md:flex-row p-6 gap-6" id="collections">
@@ -71,7 +73,7 @@ const Work = () => {
       </div>
 
       {/* Upload Form - Only show if user is signed in */}
-      {session && (
+      {session?.user?.canUpload && (
         <section className="mb-10">
           <h2 className="text-xl font-semibold mb-2">Upload Your Design</h2>
           <UploadForm />
@@ -91,7 +93,9 @@ const Work = () => {
               className="w-24 h-24 object-cover rounded-lg"
             />
             <div>
-              <h3 className="text-l font-light text-textBlue">{project.title}</h3>
+              <h3 className="text-l font-light text-textBlue">
+                {project.title}
+              </h3>
               <p className="text-gray-500 text-sm">
                 Category: {project.category}
               </p>

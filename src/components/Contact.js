@@ -1,5 +1,5 @@
 'use client'
-import React, { useRef } from 'react'
+import React, { useRef, useState} from 'react'
 import { FaGithub, FaDiscord, FaFacebook, FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import {FaXTwitter} from 'react-icons/fa6';
 
@@ -9,6 +9,7 @@ import toast from 'react-hot-toast';
 
 const Contact = () => {
   const form = useRef();
+  const [loading, setLoading] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -19,12 +20,16 @@ const Contact = () => {
       })
       .then(
         () => {
-          toast.success('Rocketed Out');
+          toast.success('Message sent successfully');
+          e.target.reset();
         },
         (error) => {
-          toast.error(error);
-        },
-      );
+          toast.error('Failed to send message');
+        }
+      )
+      .finally(() => {
+        setLoading(false); // Always stop loading
+      });
       e.target.reset();
   };
   return (
@@ -74,7 +79,7 @@ const Contact = () => {
             <label className="block font-normal">Message</label>
             <textarea name='message' className="w-full p-2 rounded border border-gray-300 h-28" placeholder="Type your message here..." required></textarea>
           </div>
-          <button type='submit' value='send' className="mt-4 bg-secondary text-white px-6 py-2 rounded-lg w-full">Send Message</button>
+          <button type='submit' value='send' className="mt-4 bg-secondary text-white px-6 py-2 rounded-lg w-full" disabled={loading}>{loading ? 'Sending...' : 'Send Message'}</button>
         </form>
       </div>
     </div>

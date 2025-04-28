@@ -11,8 +11,12 @@ const handler = NextAuth({
     }),
   ],
   callbacks: {
-    async signIn({ user }) {
-      return allowedEmails.includes(user.email);
+    async session({ session, token, user }) {
+      // Add a custom field "canUpload" to session
+      if (session?.user?.email) {
+        session.user.canUpload = allowedEmails.includes(session.user.email);
+      }
+      return session;
     },
   },
 });
