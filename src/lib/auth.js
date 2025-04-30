@@ -4,6 +4,7 @@ import GoogleProvider from "next-auth/providers/google";
 const allowedEmails = ["dzillacreative@gmail.com", "mylesdavyz@gmail.com"];
 
 export const authOptions = {
+  secret: process.env.NEXTAUTH_SECRET,
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
