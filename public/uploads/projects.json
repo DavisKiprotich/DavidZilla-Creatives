@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "title": "Powerhub electricals",
+    "category": "Logo",
+    "image": "/uploads/Logo/Powerhub-electricals.jpg"
+  },
+  {
+    "title": "Lagat Locking Solutions",
+    "category": "Business Card",
+    "image": "/uploads/Business Card/Lagat-Locking-Solutions.jpg"
+  },
+  {
+    "title": "Upside Technicians",
+    "category": "Business Card",
+    "image": "/uploads/Business Card/Upside-Technicians.jpg"
+  }
+]

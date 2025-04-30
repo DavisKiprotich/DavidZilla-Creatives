@@ -1,0 +1,11 @@
+# Normalize all text files to use LF in repo, CRLF on Windows
+* text=auto
+
+# Force LF for specific file types (especially for JSON)
+*.json text eol=lf
+*.js text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.css text eol=lf
+*.md text eol=lf
+*.html text eol=lf

@@ -3,7 +3,7 @@
 import { useSession } from 'next-auth/react'
 import { useState } from 'react'
 
-export default function UploadForm() {
+export default function UploadForm({ onUploadSuccess }) {
   const { data: session } = useSession()
   const [file, setFile] = useState(null)
   const [title, setTitle] = useState("")
@@ -28,19 +28,35 @@ export default function UploadForm() {
     if (!res.ok) return alert("Upload failed.")
 
     alert("Upload successful!")
+    setFile(null)
+    setTitle("")
+    setCategory("Logo")
+    if (onUploadSuccess) onUploadSuccess() // <-- refresh project list
   }
 
   return (
     <form onSubmit={onSubmit} className="space-y-4 border p-4 rounded-md text-secondary">
-      <input type="text" placeholder="Name of the file" className="w-full p-1 rounded-sm border border-textBlue" value={title} onChange={(e) => setTitle(e.target.value)} />
-      <select value={category} onChange={(e) => setCategory(e.target.value)} className="w-full text-textBlue border border-textBlue">
+      <input
+        type="text"
+        placeholder="Name of the file"
+        className="w-full p-1 rounded-sm border border-textBlue"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+      />
+      <select
+        value={category}
+        onChange={(e) => setCategory(e.target.value)}
+        className="w-full text-textBlue border border-textBlue"
+      >
         <option>Logo</option>
         <option>Business Card</option>
         <option>Flyer</option>
         <option>Company Profile</option>
       </select>
       <input type="file" onChange={(e) => setFile(e.target.files?.[0])} />
-      <button type="submit" className="bg-orange-500 text-white px-4 py-2 rounded-md">Upload</button>
+      <button type="submit" className="bg-orange-500 text-white px-4 py-2 rounded-md">
+        Upload
+      </button>
     </form>
   )
 }

@@ -12,19 +12,20 @@ const Work = () => {
   const [uploadedProjects, setUploadedProjects] = useState([]);
   const { data: session } = useSession(); // 👈 Access the session
 
-  useEffect(() => {
-    const fetchUploadedProjects = async () => {
-      try {
-        const res = await fetch("/uploads/projects.json");
-        if (res.ok) {
-          const data = await res.json();
-          setUploadedProjects(data);
-        }
-      } catch (err) {
-        console.error("Failed to load uploaded projects", err);
+  const fetchUploadedProjects = async () => {
+    try {
+      const res = await fetch("/uploads/projects.json")
+      if (res.ok) {
+        const data = await res.json()
+        setUploadedProjects(data)
       }
-    };
+    } catch (err) {
+      console.error("Failed to load uploaded projects", err)
+    }
+  }
 
+  useEffect(() => {
+    
     fetchUploadedProjects();
   }, []);
 
@@ -76,7 +77,7 @@ const Work = () => {
       {session?.user?.canUpload && (
         <section className="mb-10">
           <h2 className="text-xl font-semibold mb-2">Upload Your Design</h2>
-          <UploadForm />
+          <UploadForm onUploadSuccess={fetchUploadedProjects} />
         </section>
       )}
 
