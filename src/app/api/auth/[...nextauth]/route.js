@@ -1,24 +1,6 @@
 import NextAuth from "next-auth";
-import GoogleProvider from "next-auth/providers/google";
+import { authOptions } from "../../auth";
 
-const allowedEmails = ["dzillacreative@gmail.com", "mylesdavyz@gmail.com"];
-
-const handler = NextAuth({
-  providers: [
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    }),
-  ],
-  callbacks: {
-    async session({ session, token, user }) {
-      // Add a custom field "canUpload" to session
-      if (session?.user?.email) {
-        session.user.canUpload = allowedEmails.includes(session.user.email);
-      }
-      return session;
-    },
-  },
-});
+const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST };
