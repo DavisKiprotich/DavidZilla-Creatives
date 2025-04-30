@@ -18,5 +18,10 @@
     "title": "Heating Directions",
     "category": "Flyer",
     "image": "/uploads/Flyer/Heating-Directions.jpg"
+  },
+  {
+    "title": "Album Cover",
+    "category": "Flyer",
+    "image": "/uploads/Flyer/Album-Cover.jpg"
   }
 ]
