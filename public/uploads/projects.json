@@ -23,5 +23,10 @@
     "title": "Album Cover",
     "category": "Flyer",
     "image": "/uploads/Flyer/Album-Cover.jpg"
+  },
+  {
+    "title": "Taimel Secusystems",
+    "category": "Flyer",
+    "image": "/uploads/Flyer/Taimel-Secusystems.jpg"
   }
 ]
