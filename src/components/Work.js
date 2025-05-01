@@ -45,8 +45,27 @@ const Work = () => {
         <span className="text-orange-500 italic relative top-0.5">Work</span>
       </h2>
 
+      {/* Categories for sm/md screens */}
+      <div className="block lg:hidden mt-4">
+        <ul className="flex flex-wrap gap-3">
+          {categories.map((category) => (
+            <li
+              key={category}
+              onClick={() => setSelectedCategory(category)}
+              className={`px-4 py-1 rounded-full text-sm font-semibold cursor-pointer transition-all duration-200 border ${
+                selectedCategory === category
+                  ? "bg-orange-500 text-white border-orange-500"
+                  : "bg-transparent text-gray-700 border-gray-300"
+              }`}
+            >
+              {category}
+            </li>
+          ))}
+        </ul>
+      </div>
+
       {/* Category Sidebar */}
-      <div className="hidden md:block md:w-1/4 border-r border-gray-300 pr-4">
+      <div className="hidden lg:block lg:w-1/4 border-r border-gray-300 pr-4">
         <ul className="mt-4 flex flex-wrap md:flex-col gap-4 md:gap-2">
           {categories.map((category) => (
             <li
