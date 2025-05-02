@@ -8,24 +8,27 @@ import { useSession } from "next-auth/react";
 const categories = ["All", "Logo", "Business Card", "Flyer", "Company Profile"];
 
 const Work = () => {
+  const [lightboxIndex, setLightboxIndex] = useState(null); // holds index of active image
+  const [showLightbox, setShowLightbox] = useState(false);
+  const [lightboxImage, setLightboxImage] = useState(null);
+
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [uploadedProjects, setUploadedProjects] = useState([]);
   const { data: session } = useSession(); // 👈 Access the session
 
   const fetchUploadedProjects = async () => {
     try {
-      const res = await fetch("/uploads/projects.json")
+      const res = await fetch("/uploads/projects.json");
       if (res.ok) {
-        const data = await res.json()
-        setUploadedProjects(data)
+        const data = await res.json();
+        setUploadedProjects(data);
       }
     } catch (err) {
-      console.error("Failed to load uploaded projects", err)
+      console.error("Failed to load uploaded projects", err);
     }
-  }
+  };
 
   useEffect(() => {
-    
     fetchUploadedProjects();
   }, []);
 
@@ -100,8 +103,60 @@ const Work = () => {
         </section>
       )}
 
+      {/* Projects Display - sm and md screens (gallery grid) */}
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-2 w-full lg:hidden">
+        {filteredProjects.map((project, index) => (
+          <div key={`${project.title}-${index}`} className="w-full">
+            <img
+              src={project.image}
+              alt={project.title}
+              loading="lazy"
+              onClick={() => {
+                setLightboxImage(project.image);
+                setShowLightbox(true);
+                setLightboxIndex(index);
+                setShowLightbox(true);
+              }}
+              className="w-full h-auto object-cover rounded-sm cursor-pointer"
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* Projects Display - lg screens (original list layout) */}
+      <div className="hidden lg:grid grid-cols-1 gap-6 w-full lg:w-3/4 overflow-y-auto max-h-[85vh]">
+        {filteredProjects.map((project, index) => (
+          <div
+            key={`${project.title}-${index}`}
+            className="flex space-x-4 bg-white shadow-md rounded-lg p-4"
+          >
+            <img
+              src={project.image}
+              alt={project.title}
+              loading="lazy"
+              className="w-24 h-24 object-cover rounded-lg"
+            />
+            <div>
+              <h3 className="text-l font-light text-textBlue">
+                {project.title}
+              </h3>
+              <p className="text-gray-500 text-sm">
+                Category: {project.category}
+              </p>
+              <a
+                href={project.image}
+                target="_blank"
+                className="text-orange-500 mt-2 inline-block"
+              >
+                Details
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+
       {/* Projects Display */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full md:w-3/4 overflow-y-auto max-h-[85vh]">
+      {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full md:w-3/4 overflow-y-auto max-h-[85vh]">
         {filteredProjects.map((project, index) => (
           <div
             key={`${project.title}-${index}`}
@@ -129,7 +184,76 @@ const Work = () => {
             </div>
           </div>
         ))}
+      </div> */}
+
+      {/* Projects Display - lg screens (original list layout) */}
+      <div className="hidden lg:grid grid-cols-1 gap-6 w-full lg:w-3/4 overflow-y-auto max-h-[85vh]">
+        {filteredProjects.map((project, index) => (
+          <div
+            key={`${project.title}-${index}`}
+            className="flex space-x-4 bg-white shadow-md rounded-lg p-4"
+          >
+            <img
+              src={project.image}
+              alt={project.title}
+              loading="lazy"
+              className="w-24 h-24 object-cover rounded-lg"
+            />
+            <div>
+              <h3 className="text-l font-light text-textBlue">
+                {project.title}
+              </h3>
+              <p className="text-gray-500 text-sm">
+                Category: {project.category}
+              </p>
+              <a
+                href={project.image}
+                target="_blank"
+                className="text-orange-500 mt-2 inline-block"
+              >
+                Details
+              </a>
+            </div>
+          </div>
+        ))}
       </div>
+
+      {showLightbox && lightboxIndex !== null && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50"
+          onClick={() => setShowLightbox(false)}
+        >
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightboxIndex((prev) =>
+                prev === 0 ? filteredProjects.length - 1 : prev - 1
+              );
+            }}
+            className="absolute left-4 text-white text-3xl font-bold z-50"
+          >
+            &#8592;
+          </button>
+
+          <img
+            src={filteredProjects[lightboxIndex].image}
+            alt="Preview"
+            className="max-w-full max-h-full rounded-md"
+          />
+
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightboxIndex((prev) =>
+                prev === filteredProjects.length - 1 ? 0 : prev + 1
+              );
+            }}
+            className="absolute right-4 text-white text-3xl font-bold z-50"
+          >
+            &#8594;
+          </button>
+        </div>
+      )}
     </section>
   );
 };
