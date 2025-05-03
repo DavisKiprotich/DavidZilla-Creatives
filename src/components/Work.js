@@ -4,6 +4,7 @@ import { IoMdArrowRoundForward } from "react-icons/io";
 import UploadForm from "./UploadForm";
 import StaticProjects from "@/lib/StaticProjects";
 import { useSession } from "next-auth/react";
+import { RiArrowRightSLine, RiArrowLeftSLine } from "react-icons/ri";
 
 const categories = ["All", "Logo", "Business Card", "Flyer", "Company Profile"];
 
@@ -103,120 +104,64 @@ const Work = () => {
         </section>
       )}
 
-      {/* Projects Display - sm and md screens (gallery grid) */}
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-2 w-full lg:hidden">
-        {filteredProjects.map((project, index) => (
-          <div key={`${project.title}-${index}`} className="w-full">
-            <img
-              src={project.image}
-              alt={project.title}
-              loading="lazy"
-              onClick={() => {
-                setLightboxImage(project.image);
-                setShowLightbox(true);
-                setLightboxIndex(index);
-                setShowLightbox(true);
-              }}
-              className="w-full h-auto object-cover rounded-sm cursor-pointer"
-            />
-          </div>
-        ))}
+    
+      {/* Projects Display - sm screens ONLY (gallery grid with scroll) */}
+<div className="w-full md:hidden overflow-y-auto max-h-[85vh]">
+  <div className="grid grid-cols-2 gap-1 ">
+    {filteredProjects.map((project, index) => (
+      <div key={`${project.title}-${index}`} className="w-full">
+        <img
+          src={project.image}
+          alt={project.title}
+          loading="lazy"
+          onClick={() => {
+            setLightboxImage(project.image);
+            setShowLightbox(true);
+            setLightboxIndex(index);
+          }}
+          className="w-full h-auto object-cover rounded-sm cursor-pointer"
+        />
       </div>
+    ))}
+  </div>
+</div>
 
-      {/* Projects Display - lg screens (original list layout) */}
-      <div className="hidden lg:grid grid-cols-1 gap-6 w-full lg:w-3/4 overflow-y-auto max-h-[85vh]">
-        {filteredProjects.map((project, index) => (
-          <div
-            key={`${project.title}-${index}`}
-            className="flex space-x-4 bg-white shadow-md rounded-lg p-4"
-          >
-            <img
-              src={project.image}
-              alt={project.title}
-              loading="lazy"
-              className="w-24 h-24 object-cover rounded-lg"
-            />
-            <div>
-              <h3 className="text-l font-light text-textBlue">
-                {project.title}
-              </h3>
-              <p className="text-gray-500 text-sm">
-                Category: {project.category}
-              </p>
-              <a
-                href={project.image}
-                target="_blank"
-                className="text-orange-500 mt-2 inline-block"
-              >
-                Details
-              </a>
-            </div>
-          </div>
-        ))}
+{/* Projects Display - md and lg screens ONLY (original list layout) */}
+<div className="hidden md:grid grid-cols-1 md:grid-cols-2 gap-6 w-full md:w-3/4 overflow-y-auto max-h-[85vh]">
+  {filteredProjects.map((project, index) => (
+    <div
+      key={`${project.title}-${index}`}
+      className="flex space-x-4 bg-white shadow-md rounded-lg p-4"
+    >
+      <img
+        src={project.image}
+        alt={project.title}
+        loading="lazy"
+        onClick={() => {
+          setLightboxImage(project.image);
+          setShowLightbox(true);
+          setLightboxIndex(index);
+        }}
+        className="w-24 h-24 object-cover rounded-lg"
+      />
+      <div>
+        <h3 className="text-l font-light text-textBlue">
+          {project.title}
+        </h3>
+        <p className="text-gray-500 text-sm">
+          Category: {project.category}
+        </p>
+        <a
+          href={project.image}
+          target="_blank"
+          className="text-orange-500 mt-2 inline-block"
+        >
+          Details
+        </a>
       </div>
-
-      {/* Projects Display */}
-      {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full md:w-3/4 overflow-y-auto max-h-[85vh]">
-        {filteredProjects.map((project, index) => (
-          <div
-            key={`${project.title}-${index}`}
-            className="flex space-x-4 bg-white shadow-md rounded-lg p-4"
-          >
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-24 h-24 object-cover rounded-lg"
-            />
-            <div>
-              <h3 className="text-l font-light text-textBlue">
-                {project.title}
-              </h3>
-              <p className="text-gray-500 text-sm">
-                Category: {project.category}
-              </p>
-              <a
-                href={project.image}
-                target="_blank"
-                className="text-orange-500 mt-2 inline-block"
-              >
-                Details
-              </a>
-            </div>
-          </div>
-        ))}
-      </div> */}
-
-      {/* Projects Display - lg screens (original list layout) */}
-      <div className="hidden lg:grid grid-cols-1 gap-6 w-full lg:w-3/4 overflow-y-auto max-h-[85vh]">
-        {filteredProjects.map((project, index) => (
-          <div
-            key={`${project.title}-${index}`}
-            className="flex space-x-4 bg-white shadow-md rounded-lg p-4"
-          >
-            <img
-              src={project.image}
-              alt={project.title}
-              loading="lazy"
-              className="w-24 h-24 object-cover rounded-lg"
-            />
-            <div>
-              <h3 className="text-l font-light text-textBlue">
-                {project.title}
-              </h3>
-              <p className="text-gray-500 text-sm">
-                Category: {project.category}
-              </p>
-              <a
-                href={project.image}
-                target="_blank"
-                className="text-orange-500 mt-2 inline-block"
-              >
-                Details
-              </a>
-            </div>
-          </div>
-        ))}
-      </div>
+    </div>
+  ))}
+</div>
 
       {showLightbox && lightboxIndex !== null && (
         <div
@@ -232,7 +177,7 @@ const Work = () => {
             }}
             className="absolute left-4 text-white text-3xl font-bold z-50"
           >
-            &#8592;
+            <RiArrowLeftSLine />
           </button>
 
           <img
@@ -250,7 +195,7 @@ const Work = () => {
             }}
             className="absolute right-4 text-white text-3xl font-bold z-50"
           >
-            &#8594;
+            <RiArrowRightSLine/>
           </button>
         </div>
       )}
